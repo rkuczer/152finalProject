@@ -1,6 +1,8 @@
 package bsu.comp152;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,5 +29,24 @@ public class Main extends Application {
         primaryStage.setScene(windowContents);
         primaryStage.setTitle("Main Menu");
         primaryStage.show();
+    }
+
+    @FXML
+    public void EXIT(ActionEvent event){System.exit(0);}
+
+    @FXML
+    public void openChuckNorris(ActionEvent event){
+        Parent ryanRoot = null;
+        var source = getClass().getResource("Ryan.fxml");
+        try {
+            ryanRoot = FXMLLoader.load(source);
+        }catch (IOException e){
+            System.out.println("Chuck Norris has not found this file.");
+        }
+        Scene windowContents = new Scene(ryanRoot, 400,400);
+        Stage chuckWindow = new Stage();
+        chuckWindow.setScene(windowContents);
+        chuckWindow.setTitle("Chuck Norris Jokes");
+        chuckWindow.show();
     }
 }
