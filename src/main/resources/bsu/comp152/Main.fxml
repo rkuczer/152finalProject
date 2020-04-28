@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsu.comp152.Main">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <TextField alignment="CENTER" text="Main Menu">
+                    <font>
+                        <Font size="48.0" />
+                    </font>
+                </TextField>
+                <Accordion />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="Chuck Norris Jokes" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" text="International Phone Numbers" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Song Finder" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
