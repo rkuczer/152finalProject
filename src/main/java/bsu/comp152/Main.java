@@ -23,50 +23,45 @@ public class Main extends Application {
         var loc = getClass().getResource("Main.fxml");
         try {
             root = FXMLLoader.load(loc);
-        } catch (IOException e) {
+        }catch (IOException e){
             System.out.println("Couldn't Find FXML file!!!!!!");
         }
-        Scene windowContents = new Scene(root, 700, 500);
+        Scene windowContents = new Scene(root, 700,500);
         primaryStage.setScene(windowContents);
         primaryStage.setTitle("Main Menu");
         primaryStage.show();
     }
 
     @FXML
-    public void EXIT(ActionEvent event) {
-        System.exit(0);
-    }
+    public void EXIT(ActionEvent event){System.exit(0);}
 
     @FXML
-    public void openChuckNorris(ActionEvent event) {
+    public void openChuckNorris(ActionEvent event){
         Parent ryanRoot = null;
         var source = getClass().getResource("Ryan.fxml");
         try {
             ryanRoot = FXMLLoader.load(source);
-        } catch (IOException e) {
+        }catch (IOException e){
             System.out.println("Chuck Norris has not found this file.");
         }
-        Scene windowContents = new Scene(ryanRoot, 400, 400);
+        Scene windowContents = new Scene(ryanRoot, 400,400);
         Stage chuckWindow = new Stage();
         chuckWindow.setScene(windowContents);
         chuckWindow.setTitle("Chuck Norris Jokes");
         chuckWindow.show();
     }
-
-    @FXML
-    public void openSongFinder(ActionEvent event) {
+    @Override
+    public void openChuckNorris(ActionEvent event){
         Parent alexRoot = null;
         var alexSource = getClass().getResource("Alex.fxml");
         try {
             alexRoot = FXMLLoader.load(alexSource);
-        } catch (IOException e) {
+        }catch (IOException e){
             System.out.println("The song finder has not found what you are looking.");
         }
-        Scene windowContents = new Scene(alexRoot, 400, 400);
+        Scene windowContents = new Scene(alexRoot, 400,400);
         Stage songWindow = new Stage();
         songWindow.setScene(windowContents);
         songWindow.setTitle("Song Finder");
         songWindow.show();
-    }
-
 }
