@@ -46,7 +46,7 @@ public class Main extends Application {
         } catch (IOException e) {
             System.out.println("Chuck Norris has not found this file.");
         }
-        Scene windowContents = new Scene(ryanRoot, 400, 400);
+        Scene windowContents = new Scene(ryanRoot, 700, 500);
         Stage chuckWindow = new Stage();
         chuckWindow.setScene(windowContents);
         chuckWindow.setTitle("Chuck Norris Jokes");
