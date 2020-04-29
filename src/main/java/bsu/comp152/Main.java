@@ -13,6 +13,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static void main(String[] args) {
+
         launch(args);
     }
 
@@ -49,4 +50,18 @@ public class Main extends Application {
         chuckWindow.setTitle("Chuck Norris Jokes");
         chuckWindow.show();
     }
+    @Override
+    public void openChuckNorris(ActionEvent event){
+        Parent alexRoot = null;
+        var alexSource = getClass().getResource("Alex.fxml");
+        try {
+            alexRoot = FXMLLoader.load(alexSource);
+        }catch (IOException e){
+            System.out.println("The song finder has not found what you are looking.");
+        }
+        Scene windowContents = new Scene(alexRoot, 400,400);
+        Stage songWindow = new Stage();
+        songWindow.setScene(windowContents);
+        songWindow.setTitle("Song Finder");
+        songWindow.show();
 }
