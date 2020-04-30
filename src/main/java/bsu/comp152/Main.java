@@ -68,4 +68,20 @@ public class Main extends Application {
         songWindow.setTitle("Song Finder");
         songWindow.show();
     }
+
+    @FXML
+    public void openIntPhoneNumbers(ActionEvent event) {
+        Parent omarRoot = null;
+        var omarSource = getClass().getResource("Omar.fxml");
+        try {
+            omarRoot = FXMLLoader.load(omarSource);
+        } catch (IOException e) {
+            System.out.println("The ISO code provided is invalid");
+        }
+        Scene windowContents = new Scene(omarRoot, 400, 400);
+        Stage songWindow = new Stage();
+        songWindow.setScene(windowContents);
+        songWindow.setTitle("International Phone Numbers");
+        songWindow.show();
+    }
 }
