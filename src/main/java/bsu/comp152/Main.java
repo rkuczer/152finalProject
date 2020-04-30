@@ -78,7 +78,7 @@ public class Main extends Application {
         } catch (IOException e) {
             System.out.println("The ISO code provided is invalid");
         }
-        Scene windowContents = new Scene(omarRoot, 400, 400);
+        Scene windowContents = new Scene(omarRoot, 500, 500);
         Stage songWindow = new Stage();
         songWindow.setScene(windowContents);
         songWindow.setTitle("International Phone Numbers");
