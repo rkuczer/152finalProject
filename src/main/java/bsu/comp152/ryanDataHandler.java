@@ -18,7 +18,7 @@ public class DataHandler {
         this.webLocation = webLocation;
     }
 
-    public ArrayList<recipeDataType> getData(){
+    public ArrayList<jokeDataType> getData(){
         var requestBuilder = HttpRequest.newBuilder();
         var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
         HttpResponse<String> response = null;
@@ -36,8 +36,8 @@ public class DataHandler {
         }
         var usefulData = response.body();
         var jsonInterpreter = new Gson();
-        var recipeData = jsonInterpreter.fromJson(usefulData, responseDataType.class);
-        return recipeData.results;
+        var jokeData = jsonInterpreter.fromJson(usefulData, responseDataType.class);
+        return jokeData.results;
 
     }
 
@@ -45,18 +45,18 @@ public class DataHandler {
         String title;
         float version;
         String href;
-        ArrayList<recipeDataType> results;
+        ArrayList<jokeDataType> results;
     }
 
-    class recipeDataType {
-        String title;
-        String href;
-        String ingredients;
-        String thumbnail;
+    class jokeDataType {
+        String icon_url;
+        String id;
+        String url;
+        String value;
 
         @Override
         public String toString() {
-            return "Recipe Title: " + title ;
+            return "Joke: " + value;
         }
     }
 }

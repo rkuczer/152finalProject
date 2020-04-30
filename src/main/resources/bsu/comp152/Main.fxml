@@ -15,7 +15,7 @@
                 </TextField>
                 <Accordion />
                 <Button fx:id="ChuckNorris" mnemonicParsing="false" onAction="#openChuckNorris" prefHeight="25.0" prefWidth="172.0" text="Chuck Norris Jokes" />
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" text="International Phone Numbers" />
+                <Button mnemonicParsing="false" onAction="#openIntPhoneNumbers" prefHeight="25.0" prefWidth="171.0" text="International Phone Numbers" />
                 <Button mnemonicParsing="false" onAction="#openSongFinder" prefHeight="25.0" prefWidth="168.0" text="Song Finder" />
             <Button fx:id="exit" mnemonicParsing="false" onAction="#EXIT" prefHeight="25.0" prefWidth="79.0" text="Exit Menu" />
             </children>
