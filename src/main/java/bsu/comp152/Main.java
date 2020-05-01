@@ -26,7 +26,7 @@ public class Main extends Application {
         } catch (IOException e) {
             System.out.println("Couldn't Find FXML file!!!!!!");
         }
-        Scene windowContents = new Scene(root, 700, 500);
+        Scene windowContents = new Scene(root, 600, 500);
         primaryStage.setScene(windowContents);
         primaryStage.setTitle("Main Menu");
         primaryStage.show();
@@ -46,7 +46,7 @@ public class Main extends Application {
         } catch (IOException e) {
             System.out.println("Chuck Norris has not found this file.");
         }
-        Scene windowContents = new Scene(ryanRoot, 700, 500);
+        Scene windowContents = new Scene(ryanRoot, 600, 500);
         Stage chuckWindow = new Stage();
         chuckWindow.setScene(windowContents);
         chuckWindow.setTitle("Chuck Norris Jokes");

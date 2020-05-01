@@ -18,7 +18,7 @@ public class ryanController implements Initializable {
     private String category;
 
     public void loadData(){
-        var site = "https://api.chucknorris.io/";
+        var site = "https://api.chucknorris.io/jokes/categories/";
         var params = getQueryParameters();
         var query = site+params;
 
@@ -52,6 +52,7 @@ public class ryanController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadData();
+
     }
 
 
