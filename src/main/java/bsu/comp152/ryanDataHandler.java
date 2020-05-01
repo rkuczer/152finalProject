@@ -9,11 +9,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
-public class DataHandler {
+public class ryanDataHandler {
     private HttpClient dataGrabber;
     private String webLocation;
 
-    public DataHandler(String webLocation) {
+    public ryanDataHandler(String webLocation) {
         dataGrabber = HttpClient.newHttpClient();
         this.webLocation = webLocation;
     }

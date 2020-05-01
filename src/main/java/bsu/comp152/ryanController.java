@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
 
 public class ryanController implements Initializable {
     @FXML
-    private ListView<DataHandler.jokeDataType> ListControl;
-    private DataHandler Model;
+    private ListView<ryanDataHandler.jokeDataType> ListControl;
+    private ryanDataHandler Model;
     private String category;
 
     public void loadData(){
@@ -22,9 +22,9 @@ public class ryanController implements Initializable {
         var params = getQueryParameters();
         var query = site+params;
 
-        Model = new DataHandler(query);
+        Model = new ryanDataHandler(query);
         var jokeList = Model.getData();
-        ObservableList<DataHandler.jokeDataType> dataToShow = FXCollections.observableArrayList(jokeList);
+        ObservableList<ryanDataHandler.jokeDataType> dataToShow = FXCollections.observableArrayList(jokeList);
         ListControl.setItems(dataToShow);
     }
 
