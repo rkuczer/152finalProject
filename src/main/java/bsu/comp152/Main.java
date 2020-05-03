@@ -18,7 +18,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) { //loads the main menu fxml
         Parent root = null;
         var loc = getClass().getResource("Main.fxml");
         try {
@@ -33,12 +33,12 @@ public class Main extends Application {
     }
 
     @FXML
-    public void EXIT(ActionEvent event) {
+    public void EXIT(ActionEvent event) { //exits the program once the button named exit is clicked
         System.exit(0);
     }
 
     @FXML
-    public void openChuckNorris(ActionEvent event) {
+    public void openChuckNorris(ActionEvent event) { //opens the Ryan.fxml for the chuck norris joke api
         Parent ryanRoot = null;
         var source = getClass().getResource("Ryan.fxml");
         try {

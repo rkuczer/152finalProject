@@ -10,45 +10,47 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public class ryanDataHandler {
-    private HttpClient dataGrabber;
+    private HttpClient dataGrabber;//creates a HTTPClient and String to retrieve and store the web data.
     private String webLocation;
 
-    public ryanDataHandler(String webLocation) {
+    public ryanDataHandler(String webLocation) { //constructor for data handler to create a new object once called
         dataGrabber = HttpClient.newHttpClient();
         this.webLocation = webLocation;
     }
 
-    public ArrayList<jokeDataType> getData(){
+    public ArrayList<category> getData(){ //getData method that creates a data request from the api
         var requestBuilder = HttpRequest.newBuilder();
-        var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
+        var dataRequest = requestBuilder.uri(URI.create("https://api.chucknorris.io/jokes/categories")).build();
         HttpResponse<String> response = null;
-        try {
+        try { //attempts to get data with data grabber and send a request and use the body as a string
             response = dataGrabber.send(dataRequest, HttpResponse.BodyHandlers.ofString());
-        }catch(IOException e){
-            System.out.println("Error connecting to network or site");
+        }catch(IOException e){ //catches a IOexception error
+            System.out.println("Cannot connect to the network or requested site.");
         }
-        catch (InterruptedException e){
-            System.out.println("Connection to site broken");
+        catch (InterruptedException e){ //catches an interrupted connection to netrwork
+            System.out.println("Broken site connection.");
         }
-        if (response == null){
-            System.out.println("Something went terribly wrong, ending program");
+        if (response == null){ //catches an error where the connection fails
+            System.out.println("Something went wrong, terminating program");
             System.exit(-1);
         }
-        var usefulData = response.body();
+        var usefulData = response.body(); //assigns data to a gson interpreter to convert the data into parsed readable info.
         var jsonInterpreter = new Gson();
         var jokeData = jsonInterpreter.fromJson(usefulData, responseDataType.class);
-        return jokeData.results;
+        System.out.println(jokeData.categories);
+        return jokeData.categories;
 
     }
 
-    class responseDataType {
-        String title;
-        float version;
-        String href;
-        ArrayList<jokeDataType> results;
+    class responseDataType { //response data type for json information from chuck norris api
+        ArrayList<category> categories;
+        String icon_url;
+        String id;
+        String url;
+        String value;
     }
 
-    class jokeDataType {
+    class category{ //stores data for the joke
         String icon_url;
         String id;
         String url;
