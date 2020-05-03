@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsu.comp152.Main">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsu.comp152.ryanController">
    <children>
       <VBox layoutX="-1.0" layoutY="-3.0" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -13,7 +13,8 @@
                   <Font name="Wide Latin" size="30.0" />
                </font>
             </TextArea>
-            <ListView fx:id="ListControl" prefHeight="319.0" prefWidth="600.0" />
+            <TextField text="Joke Categories: Animal, career, celebreity, dev, fashion, food, history, money, movie, music." />
+            <ListView fx:id="ListControl" prefHeight="288.0" prefWidth="600.0" />
          </children>
       </VBox>
    </children>

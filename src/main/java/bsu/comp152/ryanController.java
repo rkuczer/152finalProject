@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputDialog;
 
 import java.net.URL;
@@ -16,31 +17,30 @@ import java.util.ResourceBundle;
 
 public class ryanController implements Initializable {
     @FXML
-    private ListView<ryanDataHandler.jokeDataType> ListControl;
+    private ListView<ryanDataHandler.category> ListControl;
     private ryanDataHandler Model;
     private String category;
 
     public void loadData(){
-        var site = "https://api.chucknorris.io/jokes/categories/";
+        var site = "http://api.chucknorris.io/";
         var params = getQueryParameters();
         var query = site+params;
 
         Model = new ryanDataHandler(query);
         var jokeList = Model.getData();
-        ObservableList<ryanDataHandler.jokeDataType> dataToShow = FXCollections.observableArrayList(jokeList);
+        ObservableList<ryanDataHandler.category> dataToShow = FXCollections.observableArrayList(jokeList);
         ListControl.setItems(dataToShow);
     }
 
     public String getQueryParameters(){
         var category = getCategory();
-        var jokeCategory = getJokeCategory();
-        return "i="+jokeCategory+"&q="+category;
+        return "/jokes/"+category;
     }
 
-    private String getJokeCategory(){
+    private String getCategory(){
         TextInputDialog answer = new TextInputDialog("joke category");
-        answer.setHeaderText("Gathering Information");
-        answer.setContentText("What joke category do you want.");
+        answer.setHeaderText("Joke Categories: animal, career, celebrity, dev, fashion, food, history, money, movie, music.");
+        answer.setContentText("Type your joke category.");
         Optional<String> result = answer.showAndWait();
         if (result.isPresent())
             return result.get();
@@ -48,14 +48,32 @@ public class ryanController implements Initializable {
             return "";
     }
 
-    private String getCategory(){
+    private String getCategory2(){
         return category;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadData();
+        //loadData();
+        ListControl.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<ryanDataHandler.category>() {
+                    @Override
+                    public void changed(ObservableValue<? extends ryanDataHandler.category> observable, ryanDataHandler.category oldValue, ryanDataHandler.category newValue) {
+                        var joke = ListControl.getSelectionModel().getSelectedItem();
+                        Alert recipeInfo = new Alert(Alert.AlertType.INFORMATION);
+                        recipeInfo.setTitle("Joke and Category");
+                        recipeInfo.setHeaderText("Ingredients: "+ joke.ingredients);
+                        recipeInfo.setContentText("Here: "+joke.icon);
+                        recipeInfo.showAndWait();
+                    }
+                }
+        );
+    }
 
+    @FXML
+    public void selectMenuItem(javafx.event.ActionEvent actionEvent) {
+        var item =(MenuItem)actionEvent.getSource();
+        category = item.getText();
     }
 
 

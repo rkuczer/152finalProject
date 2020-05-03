@@ -20,23 +20,23 @@ public class ryanDataHandler {
 
     public ArrayList<category> getData(){ //getData method that creates a data request from the api
         var requestBuilder = HttpRequest.newBuilder();
-        var dataRequest = requestBuilder.uri(URI.create("https://api.chucknorris.io/jokes/categories")).build();
+        var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
         HttpResponse<String> response = null;
         try { //attempts to get data with data grabber and send a request and use the body as a string
             response = dataGrabber.send(dataRequest, HttpResponse.BodyHandlers.ofString());
         }catch(IOException e){ //catches a IOexception error
             System.out.println("Cannot connect to the network or requested site.");
         }
-        catch (InterruptedException e){ //catches an interrupted connection to netrwork
+        catch (InterruptedException e){ //catches an interrupted connection to network
             System.out.println("Broken site connection.");
         }
         if (response == null){ //catches an error where the connection fails
             System.out.println("Something went wrong, terminating program");
             System.exit(-1);
         }
-        var usefulData = response.body(); //assigns data to a gson interpreter to convert the data into parsed readable info.
-        var jsonInterpreter = new Gson();
-        var jokeData = jsonInterpreter.fromJson(usefulData, responseDataType.class);
+        var usefulData = response.body(); //assigns data to a gson interpreter to convert the data from json into parsed readable info.
+        var jsonInterpreter = new Gson(); //creates a gson object
+        var jokeData = jsonInterpreter.fromJson(usefulData, responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
         System.out.println(jokeData.categories);
         return jokeData.categories;
 
@@ -50,12 +50,8 @@ public class ryanDataHandler {
         String value;
     }
 
-    class category{ //stores data for the joke
-        String icon_url;
-        String id;
-        String url;
+    class category{ //stores data for the joke named as value in json
         String value;
-
         @Override
         public String toString() {
             return "Joke: " + value;
