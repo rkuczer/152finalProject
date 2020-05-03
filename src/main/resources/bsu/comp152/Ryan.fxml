@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -13,8 +14,14 @@
                   <Font name="Wide Latin" size="30.0" />
                </font>
             </TextArea>
-            <TextField text="Joke Categories: Animal, career, celebreity, dev, fashion, food, history, money, movie, music." />
-            <ListView fx:id="ListControl" prefHeight="288.0" prefWidth="600.0" />
+            <TextField text="Joke Categories: animal, career, celebreity, dev, fashion, food, history, money, movie, music." />
+            <TextField fx:id="JokePrompt" prefHeight="25.0" prefWidth="114.0" text="Enter the category of a joke below.">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="jokeInput" />
+            <Button mnemonicParsing="false" onAction="#loadData" prefHeight="25.0" prefWidth="163.0" text="Confirm Category Selection" />
          </children>
       </VBox>
    </children>

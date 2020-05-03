@@ -62,8 +62,7 @@ public class ryanController implements Initializable {
                         var joke = ListControl.getSelectionModel().getSelectedItem();
                         Alert recipeInfo = new Alert(Alert.AlertType.INFORMATION);
                         recipeInfo.setTitle("Joke and Category");
-                        recipeInfo.setHeaderText("Ingredients: "+ joke.ingredients);
-                        recipeInfo.setContentText("Here: "+joke.icon);
+                        recipeInfo.setContentText("Joke: "+joke.value);
                         recipeInfo.showAndWait();
                     }
                 }
