@@ -19,7 +19,7 @@ public class omarDataHandler {
         this.webLocation = webLocation;
     }
 
-    public ArrayList<omarDataHandler.category> getData() { //This method creates a data request from the API
+    public ArrayList<omarDataHandler.ISOCode> getData() { //This method creates a data request from the API
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
@@ -40,20 +40,20 @@ public class omarDataHandler {
         var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
         var jsonInterpreter = new Gson(); //Gson will be created
         var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
-        System.out.println(intPhoneNum.categories);
-        return intPhoneNum.categories;
+        System.out.println(intPhoneNum.ISOCodes);
+        return intPhoneNum.ISOCodes;
 
     }
 
     class responseDataType { //response data type for json information from International Phone Numbers API.
-        ArrayList<omarDataHandler.category> categories;
+        ArrayList<omarDataHandler.ISOCode> ISOCodes;
         String icon_url;
         String id;
         String url;
         String value;
     }
 
-    class category{ //stores data for the joke named as value in json
+    class ISOCode{ //stores data for the joke named as value in json
         String value;
         @Override
         public String toString() {
