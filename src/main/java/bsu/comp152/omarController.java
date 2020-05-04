@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 public class omarController implements Initializable {
     @FXML
     private ListView<ryanDataHandler.category> ListControl;
-    private ryanDataHandler Model;
+    private omarDataHandler Model;
     private String jokeInput;
 
 
