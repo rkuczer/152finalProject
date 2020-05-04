@@ -21,7 +21,7 @@ public class omarController implements Initializable {
         var site1 = "http://country.io/phone.json";
         var site2 = "http://country.io/names.json";
         var params = getQueryParameters();
-        var query = site+params;
+        var query = site1+params;
 
         Model = new omarDataHandler(query);
         var CountryCode = Model.getData();
