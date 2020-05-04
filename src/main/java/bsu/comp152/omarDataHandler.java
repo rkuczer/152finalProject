@@ -53,11 +53,11 @@ public class omarDataHandler {
         String value;
     }
 
-    class ISOCode{ //stores data for the joke named as value in json
+    class ISOCode{ //stores data for the country name as value in json
         String value;
         @Override
         public String toString() {
-            return "Joke: " + value;
+            return "Country: " + value;
         }
     }
 }
