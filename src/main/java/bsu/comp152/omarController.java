@@ -33,11 +33,8 @@ public class omarController implements Initializable {
         var isoCodes = getISOCode();
         return "/jokes/"+isoCodes;
     }
-    private String getJokeInput(){
-        return ISOCode;
 
-
-    }
+    
 
 
     private String getISOCode(){
