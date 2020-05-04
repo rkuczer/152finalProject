@@ -31,10 +31,10 @@ public class omarController implements Initializable {
 
     private String getQueryParameters() {
         var isoCodes = getISOCode();
-        return "/jokes/"+isoCodes;
+        return "/country/"+isoCodes;
     }
 
-    
+
 
 
     private String getISOCode(){
