@@ -40,15 +40,21 @@
          <children>
             <MenuButton mnemonicParsing="false" text="MenuButton">
               <items>
-                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="Casserole" />
-                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="Burger" />
-                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="Vegetable" />
-                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="Cake" />
-                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="Cookie" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="animal" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="career" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="celebrity" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="dev" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="fashion" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="food" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="history" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="money" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="movie" />
+                 <MenuItem mnemonicParsing="false" onAction="#selectMenuItem" text="music" />
               </items>
             </MenuButton>
             <Button fx:id="buttonPoop" mnemonicParsing="false" onAction="#loadData" prefHeight="64.0" prefWidth="100.0" text="Get Joke" />
          </children>
       </VBox>
+      <VBox layoutX="350.0" layoutY="130.0" prefHeight="200.0" prefWidth="250.0" />
    </children>
 </AnchorPane>
