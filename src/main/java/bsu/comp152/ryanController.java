@@ -53,6 +53,7 @@ public class ryanController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //loadData();
+        jokeInput = "";
         ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
                 new ChangeListener<ryanDataHandler.category>() {
                     @Override
