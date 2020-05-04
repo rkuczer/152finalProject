@@ -19,31 +19,33 @@ public class omarDataHandler {
         this.webLocation = webLocation;
     }
 
-    public ArrayList<omarDataHandler.category> getData() { //getData method that creates a data request from the api
+    public ArrayList<omarDataHandler.category> getData() { //This method creates a data request from the API
+
         var requestBuilder = HttpRequest.newBuilder();
         var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
         HttpResponse<String> response = null;
-        try { //attempts to get data with data grabber and send a request and use the body as a string
+
+        try { // start a try/catch that attempts to get data with data grabber and send a request and use the body as a string
             response = dataGrabber.send(dataRequest, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) { //catches a IOexception error
-            System.out.println("Cannot connect to the network or requested site.");
-        } catch (InterruptedException e) { //catches an interrupted connection to network
-            System.out.println("Broken site connection.");
+        } catch (IOException e) {
+            System.out.println("Failed to connect to Network!!");
+        } catch (InterruptedException e) { //catches and handles an interrupted or corrupt network
+            System.out.println("Connection Failed!!");
         }
-        if (response == null) { //catches an error where the connection fails
-            System.out.println("Something went wrong, terminating program");
+        if (response == null) { //catches an error when the connection fails
+            System.out.println("Oops, an issue happened, exiting program");
             System.exit(-1);
         }
-        var usefulData = response.body(); //assigns data to a gson interpreter to convert the data from json into parsed readable info.
-        var jsonInterpreter = new Gson(); //creates a gson object
-        var jokeData = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
-        System.out.println(jokeData.categories);
-        return jokeData.categories;
+
+        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
+        var jsonInterpreter = new Gson(); //Gson will be created
+        var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
+        System.out.println(intPhoneNum.categories);
+        return intPhoneNum.categories;
 
     }
 
-
-    class responseDataType { //response data type for json information from chuck norris api
+    class responseDataType { //response data type for json information from International Phone Numbers API.
         ArrayList<omarDataHandler.category> categories;
         String icon_url;
         String id;

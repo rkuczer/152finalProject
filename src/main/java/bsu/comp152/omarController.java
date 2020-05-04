@@ -29,8 +29,11 @@ public class omarController implements Initializable {
 
     private String getQueryParameters() {
 
-
     }
+
+
+
+    
 
 
     @Override
