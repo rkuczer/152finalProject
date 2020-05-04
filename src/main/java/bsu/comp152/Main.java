@@ -70,7 +70,7 @@ public class Main extends Application {
     }
 
     @FXML
-    public void openIntPhoneNumbers(ActionEvent event) {
+    public void openIntPhoneNumbers(ActionEvent event) { // opens the Omar.fxml to choose the country name and its ISO code
         Parent omarRoot = null;
         var omarSource = getClass().getResource("Omar.fxml");
         try {
