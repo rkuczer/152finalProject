@@ -35,8 +35,8 @@ public class alexDataHandler {
             System.out.println("Something went very wrong, ending the program");
             System.exit(-1);
         }
-        var usefulData = response.body();
-        var jsonInterpreter = new Gson();
+        var usefulData = response.body(); //assigns data to the gson interpreter to convert the data from json into parsed readable info.
+        var jsonInterpreter = new Gson(); //creats the gson object
         var songData = jsonInterpreter.fromJson(usefulData, responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
         System.out.println(songData.categories);
         return songData.categories;
