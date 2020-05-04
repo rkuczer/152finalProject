@@ -6,10 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.Optional;
@@ -19,7 +16,7 @@ public class ryanController implements Initializable {
     @FXML
     private ListView<ryanDataHandler.category> ListControl;
     private ryanDataHandler Model;
-    private String category;
+    private String jokeInput;
 
     public void loadData(){
         var site = "http://api.chucknorris.io/";
@@ -36,6 +33,10 @@ public class ryanController implements Initializable {
         var category = getCategory();
         return "/jokes/"+category;
     }
+    private String getJokeInput(){
+        return jokeInput;
+    }
+
 
     private String getCategory(){
         TextInputDialog answer = new TextInputDialog("joke category");
@@ -48,32 +49,31 @@ public class ryanController implements Initializable {
             return "";
     }
 
-    private String getCategory2(){
-        return category;
-    }
-
+    //initialize method runs when fxml loads
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //loadData();
-        ListControl.getSelectionModel().selectedItemProperty().addListener(
+        ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
                 new ChangeListener<ryanDataHandler.category>() {
                     @Override
                     public void changed(ObservableValue<? extends ryanDataHandler.category> observable, ryanDataHandler.category oldValue, ryanDataHandler.category newValue) {
-                        var joke = ListControl.getSelectionModel().getSelectedItem();
-                        Alert recipeInfo = new Alert(Alert.AlertType.INFORMATION);
-                        recipeInfo.setTitle("Joke and Category");
-                        recipeInfo.setContentText("Joke: "+joke.value);
-                        recipeInfo.showAndWait();
+                        var jokeCategory = ListControl.getSelectionModel().getSelectedItem(); //creates a new alert dialog
+                        Alert jokeInfo = new Alert(Alert.AlertType.INFORMATION);        //sets dialog to info type
+                        jokeInfo.setTitle("Joke and Category");                         //sets title for window
+                        jokeInfo.setContentText("Joke: "+jokeCategory.value);           //presents the joke category
+                        jokeInfo.showAndWait();                                         //lets the user exit when they choose.
                     }
                 }
         );
     }
-
     @FXML
     public void selectMenuItem(javafx.event.ActionEvent actionEvent) {
         var item =(MenuItem)actionEvent.getSource();
-        category = item.getText();
+        jokeInput = item.getText();
     }
+
+
+
 
 
 }
