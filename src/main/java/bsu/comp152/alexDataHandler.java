@@ -31,7 +31,7 @@ public class alexDataHandler {
         catch (InterruptedException e){ //catches an interrupted connection to network
             System.out.println("connection to the site is broken");
         }
-        if (response == null){
+        if (response == null){  //if nothing is available, tells it to return this
             System.out.println("Something went very wrong, ending the program");
             System.exit(-1);
         }
@@ -55,7 +55,7 @@ public class alexDataHandler {
         String value;
         @Override
         public String toString() {
-            return "Joke: " + value;
+            return "Song: " + value;
         }
     }
 }

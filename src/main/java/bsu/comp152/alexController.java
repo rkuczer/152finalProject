@@ -21,9 +21,10 @@ public class alexController implements Initializable {
     private String category;
 
     public void loadData(){
-        var site = " https://searchly.asuarez.dev/docs/v1#tag/song";
+        var site1 = " https://searchly.asuarez.dev/docs/v1#tag/song";
+        var site2 = "https://searchly.asuarez.dev/api/v1/similarity/by_song" //2nd step
         var params = getQueryParameters();
-        var query = site+params;
+        var query = site1 +params;
 
         Model = new alexDataHandler(query);
         var songList = Model.getData();
@@ -60,8 +61,8 @@ public class alexController implements Initializable {
                                         alexDataHandler.category oldValue, alexDataHandler.category newValue) {
                         var song = ListControl.getSelectionModel().getSelectedItem();
                         Alert artistInfo = new Alert(Alert.AlertType.INFORMATION);
-                        artistInfo.setTitle("Joke and Category");
-                        artistInfo.setContentText("Joke: "+song.value);
+                        artistInfo.setTitle("Song Finder");
+                        artistInfo.setContentText("song: "+song.value);
                         artistInfo.showAndWait();
                     }
                 }
