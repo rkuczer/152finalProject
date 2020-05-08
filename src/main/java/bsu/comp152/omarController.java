@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputDialog;
 
 import java.net.URL;
@@ -70,5 +71,11 @@ public class omarController implements Initializable {
                 }
         );
 
+    }
+
+    @FXML
+    public void selectMenuItem(javafx.event.ActionEvent actionEvent) {
+        var item =(MenuItem)actionEvent.getSource();
+        ISOCode = item.getText();
     }
 }
