@@ -11,7 +11,7 @@
             <Font size="36.0" />
          </font>
       </TextArea>
-      <Button layoutX="14.0" layoutY="124.0" mnemonicParsing="false" onAction="#loadData" prefHeight="46.0" prefWidth="105.0" text="Country" />
+      <Button layoutX="14.0" layoutY="124.0" mnemonicParsing="false" onAction="#selectMenuItem" prefHeight="46.0" prefWidth="105.0" text="Country" />
       <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#loadData" prefHeight="46.0" prefWidth="105.0" text="ISO-Code" />
    </children>
 </AnchorPane>

@@ -76,13 +76,14 @@ public class Main extends Application {
         try {
             omarRoot = FXMLLoader.load(omarSource);
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("The ISO code provided is invalid!");
             System.exit(-1);
         }
         Scene windowContents = new Scene(omarRoot, 500, 500);
-        Stage songWindow = new Stage();
-        songWindow.setScene(windowContents);
-        songWindow.setTitle("International Phone Numbers");
-        songWindow.show();
+        Stage internationalNumberWindow = new Stage();
+        internationalNumberWindow.setScene(windowContents);
+        internationalNumberWindow.setTitle("International Phone Numbers");
+        internationalNumberWindow.show();
     }
 }
