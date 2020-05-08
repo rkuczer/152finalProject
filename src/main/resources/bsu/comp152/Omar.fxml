@@ -2,21 +2,14 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsu.comp152.omarController">
    <children>
       <HBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ListView fx:id="DataList" onEditStart="#loadData" prefHeight="345.0" prefWidth="200.0" />
+            <ListView fx:id="DataList" onEditStart="#loadData" prefHeight="400.0" prefWidth="212.0" />
             <TextArea fx:id="DataDisplay" onDragDetected="#loadData" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </HBox>
-      <TextField alignment="CENTER" prefHeight="27.0" prefWidth="600.0" text="International Phone Numbers">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>
