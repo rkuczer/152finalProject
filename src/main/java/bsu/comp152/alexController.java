@@ -22,7 +22,7 @@ public class alexController implements Initializable {
 
     public void loadData(){
         var site1 = " https://searchly.asuarez.dev/docs/v1#tag/song";
-        var site2 = "https://searchly.asuarez.dev/api/v1/similarity/by_song" //2nd step
+        var site2 = "https://searchly.asuarez.dev/api/v1/similarity/by_song"; //2nd step
         var params = getQueryParameters();
         var query = site1 +params;
 

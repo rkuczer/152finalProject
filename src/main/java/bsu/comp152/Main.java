@@ -77,6 +77,7 @@ public class Main extends Application {
             omarRoot = FXMLLoader.load(omarSource);
         } catch (IOException e) {
             System.out.println("The ISO code provided is invalid!");
+            System.exit(-1);
         }
         Scene windowContents = new Scene(omarRoot, 500, 500);
         Stage songWindow = new Stage();
