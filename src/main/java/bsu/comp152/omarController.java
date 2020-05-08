@@ -56,7 +56,7 @@ public class omarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        loadData();
         ISOCode = "";
         ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
                 new ChangeListener<omarDataHandler.ISOCode>() {
