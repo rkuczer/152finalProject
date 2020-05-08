@@ -1,7 +1,5 @@
 package bsu.comp152;
 
-import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -19,7 +17,7 @@ public class omarDataHandler {
         this.webLocation = webLocation;
     }
 
-    public ArrayList<omarDataHandler.ISOCode> getData() { //This method creates a data request from the API
+    public void getData() { //This method creates a data request from the API
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
@@ -37,11 +35,11 @@ public class omarDataHandler {
             System.exit(-1);
         }
 
-        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
-        var jsonInterpreter = new Gson(); //Gson will be created
-        var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
-        System.out.println(intPhoneNum.ISOCodes);
-        return intPhoneNum.ISOCodes;
+//        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
+//        var jsonInterpreter = new Gson(); //Gson will be created
+//        var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
+//        System.out.println(intPhoneNum.ISOCodes);
+//        return intPhoneNum.ISOCodes;
 
     }
 

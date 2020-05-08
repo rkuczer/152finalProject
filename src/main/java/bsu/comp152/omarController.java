@@ -29,18 +29,21 @@ public class omarController implements Initializable {
     private TextArea DataDisplay;
     @FXML
     private ListView DataList;
-//    private ListView<omarDataHandler.ISOCode> ListControl;
+    private ListView<omarDataHandler.ISOCode> ListControl;
     private String ISOCode;
+    private String query;
+    private String params;
 
     public void loadData() {
         var site1 = "http://country.io/phone.json";
         var site2 = "http://country.io/names.json";
-        var params = getQueryParameters();
+//        var params = getQueryParameters();
+
         var query = site1 + params;
 
         Model = new omarDataHandler(query);
-        var CountryCode = Model.getData();
-//        ObservableList<omarDataHandler.ISOCode> dataToShow = FXCollections.observableArrayList(CountryCode);
+//        var CountryCode = Model.getData();
+//       ObservableList<omarDataHandler.ISOCode> dataToShow = FXCollections.observableArrayList(CountryCode);
 //        ListControl.setItems(dataToShow);
 
         var requestBuilder = HttpRequest.newBuilder();
@@ -73,23 +76,23 @@ public class omarController implements Initializable {
 
 
 
-    private String getQueryParameters() {
-        var isoCodes = getISOCode();
-        return "/country/"+isoCodes;
-    }
+//    private String getQueryParameters() {
+//        var isoCodes = getISOCode();
+//        return "/country/"+isoCodes;
+//    }
 
 
-    private String getISOCode(){
-
-        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
-        answer.setHeaderText("Choose country ISO code.");
-        answer.setContentText("Choose country.");
-        Optional<String> result = answer.showAndWait();
-        if (result.isPresent())
-            return result.get();
-        else
-            return "";
-    }
+//    private String getISOCode(){
+//
+//        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
+//        answer.setHeaderText("Choose country ISO code.");
+//        answer.setContentText("Choose country.");
+//        Optional<String> result = answer.showAndWait();
+//        if (result.isPresent())
+//            return result.get();
+//        else
+//            return "";
+//    }
 
 
     @Override
