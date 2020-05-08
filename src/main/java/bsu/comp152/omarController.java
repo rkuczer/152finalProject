@@ -1,9 +1,12 @@
 package bsu.comp152;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 
@@ -52,6 +55,20 @@ public class omarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        ISOCode = "";
+        ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
+                new ChangeListener<omarDataHandler.ISOCode>() {
+                    @Override
+                    public void changed(ObservableValue<? extends omarDataHandler.ISOCode> observable, omarDataHandler.ISOCode oldValue, omarDataHandler.ISOCode newValue) {
+                        var phoneCode = ListControl.getSelectionModel().getSelectedItem(); //creates a new alert dialog
+                        Alert phoneCodeInfo = new Alert(Alert.AlertType.INFORMATION);        //sets dialog to info type
+                        phoneCodeInfo.setTitle("International Phone Numbers");                         //sets title for window
+                        phoneCodeInfo.setContentText("Phone code:"+phoneCodeInfo.value);           //
+                        phoneCodeInfo.showAndWait();                                         //lets the user exit when they choose.
+                    }
+                }
+        );
 
     }
 }
