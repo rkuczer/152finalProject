@@ -29,7 +29,7 @@ public class omarController implements Initializable {
     private TextArea DataDisplay;
     @FXML
     private ListView DataList;
-    private ListView<omarDataHandler.ISOCode> ListControl;
+//    private ListView<omarDataHandler.ISOCode> ListControl;
     private String ISOCode;
     private String query;
     private String params;

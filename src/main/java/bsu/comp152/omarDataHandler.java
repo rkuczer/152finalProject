@@ -1,16 +1,27 @@
 package bsu.comp152;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class omarDataHandler {
 
     private HttpClient dataGrabber;// HTTPClient will be created as well as the String to get the data and store it.
     private String webLocation;
+    @FXML
+    private ListView DataList;
 
     public omarDataHandler(String webLocation) { //constructor for data handler to create a new object once called
         dataGrabber = HttpClient.newHttpClient();
@@ -34,6 +45,14 @@ public class omarDataHandler {
             System.out.println("Oops, an issue happened, exiting program");
             System.exit(-1);
         }
+        var usefulData = response.body();
+        Type type = new TypeToken<Map<String, String>>() {
+        }.getType();
+        var gson = new Gson();
+        Map<String, String> myMap = gson.fromJson(usefulData, type);
+        var dataList = new ArrayList<String>(myMap.keySet());
+        ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
+        DataList.setItems(countryName);
 
 //        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
 //        var jsonInterpreter = new Gson(); //Gson will be created
