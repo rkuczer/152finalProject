@@ -64,7 +64,7 @@ public class omarController implements Initializable {
                         var phoneCode = ListControl.getSelectionModel().getSelectedItem(); //creates a new alert dialog
                         Alert phoneCodeInfo = new Alert(Alert.AlertType.INFORMATION);        //sets dialog to info type
                         phoneCodeInfo.setTitle("International Phone Numbers");                         //sets title for window
-                        phoneCodeInfo.setContentText("Phone code:"+phoneCodeInfo.value);           //
+                        phoneCodeInfo.setContentText("Phone code:"+phoneCode.value);           //
                         phoneCodeInfo.showAndWait();                                         //lets the user exit when they choose.
                     }
                 }
