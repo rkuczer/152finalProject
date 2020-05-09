@@ -34,10 +34,10 @@ public class omarController implements Initializable {
     private String query;
     private String params;
 
-    public void loadData() {
-        var site1 = "http://country.io/phone.json";
-//        var site2 = "http://country.io/names.json";
-        var params = getQueryParameters();
+    public void loadData() { // method that gathers the data to display
+        var site1 = "http://country.io/phone.json ";
+        var site2 = "http://country.io/names.json";
+//        var params = getQueryParameters();
 
         var query = site1 + params;
 //        var query2 = site2 + params;
@@ -77,32 +77,32 @@ public class omarController implements Initializable {
 
 
 
-    private String getQueryParameters() {
-        var isoCodes = getISOCode();
-        return "/country/"+isoCodes;
-    }
-
-
-    private String getISOCode(){
-
-        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
-        answer.setHeaderText("Choose country ISO code.");
-        answer.setContentText("Choose country.");
-        answer.setWidth(400);
-        answer.setResizable(true);
-        Optional<String> result = answer.showAndWait();
-        if (result.isPresent())
-            return result.get();
-        else
-            return "";
-    }
+//    private String getQueryParameters() {
+//        var isoCodes = getISOCode();
+//        return "/country/"+isoCodes;
+//    }
+//
+//
+//    private String getISOCode(){
+//
+//        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
+//        answer.setHeaderText("Choose country ISO code.");
+//        answer.setContentText("Choose country.");
+//        answer.setWidth(400);
+//        answer.setResizable(true);
+//        Optional<String> result = answer.showAndWait();
+//        if (result.isPresent())
+//            return result.get();
+//        else
+//            return "";
+//    }
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { // a method that loads the data and displays it
         loadData();
-//        ISOCode = "";
-        responseDataTypeListView.getSelectionModel().selectedItemProperty().addListener( // gets selescted item from the list of countries
+        ISOCode = "";
+        responseDataTypeListView.getSelectionModel().selectedItemProperty().addListener( // gets selected item from the list of countries
                 new ChangeListener<omarDataHandler.responseDataType>(){
                     @Override
                     public void changed(ObservableValue<? extends omarDataHandler.responseDataType> observableValue, omarDataHandler.responseDataType oldValue, omarDataHandler.responseDataType  newValue) {
