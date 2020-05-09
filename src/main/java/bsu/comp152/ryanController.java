@@ -18,7 +18,7 @@ public class ryanController implements Initializable {
     private ryanDataHandler Model;
     private String jokeInput;
 
-    public void loadData(){
+    public void loadData(){ //method loads data from the n
         var site = "http://api.chucknorris.io/";
         var params = getQueryParameters();
         var query = site+params;
@@ -52,7 +52,7 @@ public class ryanController implements Initializable {
     //initialize method runs when fxml loads
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //loadData();
+        loadData();
         jokeInput = "";
         ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
                 new ChangeListener<ryanDataHandler.category>() {
