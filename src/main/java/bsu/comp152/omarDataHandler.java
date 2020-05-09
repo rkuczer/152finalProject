@@ -54,7 +54,6 @@ public class omarDataHandler {
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
         DataList.setItems(countryName);
 
-//        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
         var jsonInterpreter = new Gson(); //Gson will be created
         var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
         System.out.println(intPhoneNum.responseDataTypes);

@@ -36,16 +36,16 @@ public class omarController implements Initializable {
 
     public void loadData() {
         var site1 = "http://country.io/phone.json";
-        var site2 = "http://country.io/names.json";
+//        var site2 = "http://country.io/names.json";
         var params = getQueryParameters();
 
         var query = site1 + params;
-        var query2 = site2 + params;
+//        var query2 = site2 + params;
 
-        Model = new omarDataHandler(query);
-        Model.getData();
-//       ObservableList<omarDataHandler.ISOCode> dataToShow = FXCollections.observableArrayList(CountryCode);
-//        ListControl.setItems(dataToShow);
+       Model = new omarDataHandler(query);
+       Model.getData();
+//       ObservableList<omarDataHandler.responseDataType> dataToShow = FXCollections.observableArrayList();
+//        DataList.setItems(dataToShow);
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
@@ -70,7 +70,6 @@ public class omarController implements Initializable {
         var gson = new Gson();
         Map<String, String> myMap = gson.fromJson(usefulData, type);
         var dataList = new ArrayList<String>(myMap.keySet());
-        var dataDisplay = new ArrayList<String>(myMap.keySet());
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
         DataList.setItems(countryName);
 
@@ -103,7 +102,7 @@ public class omarController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
 //        ISOCode = "";
-        responseDataTypeListView.getSelectionModel().selectedItemProperty().addListener(
+        responseDataTypeListView.getSelectionModel().selectedItemProperty().addListener( // gets selescted item from the list of countries
                 new ChangeListener<omarDataHandler.responseDataType>(){
                     @Override
                     public void changed(ObservableValue<? extends omarDataHandler.responseDataType> observableValue, omarDataHandler.responseDataType oldValue, omarDataHandler.responseDataType  newValue) {
