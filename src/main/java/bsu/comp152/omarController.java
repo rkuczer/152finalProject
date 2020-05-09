@@ -38,14 +38,10 @@ public class omarController implements Initializable {
         var site1 = "http://country.io/phone.json ";
         var site2 = "http://country.io/names.json";
         var params = getQueryParameters();
-
         var query = site1 + params;
-//        var query2 = site2 + params;
-
+        var query2 = site2 + params;
        Model = new omarDataHandler(query);
        Model.getData();
-
-
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
@@ -72,17 +68,13 @@ public class omarController implements Initializable {
         var dataList = new ArrayList<String>(myMap.keySet());
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
         DataList.setItems(countryName);
-
-
     }
-
 
 
     private String getQueryParameters() {
         var isoCodes = getISOCode();
         return "/country/"+isoCodes;
     }
-
 
     private String getISOCode(){
 
@@ -118,7 +110,6 @@ public class omarController implements Initializable {
         );
 
     }
-
 
 
     @FXML
