@@ -1,6 +1,7 @@
 package bsu.comp152;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -40,6 +41,7 @@ public class omarController implements Initializable {
 //        var params = getQueryParameters();
 
         var query = site1 + params;
+        var query2 = site2 + params;
 
         Model = new omarDataHandler(query);
 //        var CountryCode = Model.getData();
@@ -49,6 +51,7 @@ public class omarController implements Initializable {
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
         var dataRequest = requestBuilder.uri(URI.create(site1)).build();
+//        var dataRequest2 = requestBuilder.uri(URI.create(site2)).build();
         HttpResponse<String> response = null;
         try {
             response = dataGrabber.send(dataRequest, HttpResponse.BodyHandlers.ofString());
@@ -67,9 +70,15 @@ public class omarController implements Initializable {
         var gson = new Gson();
         Map<String, String> myMap = gson.fromJson(usefulData, type);
         var dataList = new ArrayList<String>(myMap.keySet());
+        var dataDisplay = new ArrayList<String>(myMap.keySet());
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
+//        ObservableList<String> countryCode = FXCollections.observableArrayList(site1);
         DataList.setItems(countryName);
+//        DataDisplay.setText(site1);
     }
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 package bsu.comp152;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -63,6 +64,7 @@ public class omarDataHandler {
     }
 
     class responseDataType { //response data type for json information from International Phone Numbers API.
+
         ArrayList<omarDataHandler.ISOCode> ISOCodes;
         String icon_url;
         String id;
