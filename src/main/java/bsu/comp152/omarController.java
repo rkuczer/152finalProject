@@ -44,7 +44,7 @@ public class omarController implements Initializable {
         var query2 = site2 + params;
 
         Model = new omarDataHandler(query);
-//        var CountryCode = Model.getData();
+//        Model.getData();
 //       ObservableList<omarDataHandler.ISOCode> dataToShow = FXCollections.observableArrayList(CountryCode);
 //        ListControl.setItems(dataToShow);
 
@@ -96,6 +96,8 @@ public class omarController implements Initializable {
 //        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
 //        answer.setHeaderText("Choose country ISO code.");
 //        answer.setContentText("Choose country.");
+//        answer.setWidth(400);
+//        answer.setResizable(true);
 //        Optional<String> result = answer.showAndWait();
 //        if (result.isPresent())
 //            return result.get();
