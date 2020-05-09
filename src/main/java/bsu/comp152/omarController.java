@@ -37,15 +37,15 @@ public class omarController implements Initializable {
     public void loadData() { // method that gathers the data to display
         var site1 = "http://country.io/phone.json ";
         var site2 = "http://country.io/names.json";
-//        var params = getQueryParameters();
+        var params = getQueryParameters();
 
         var query = site1 + params;
 //        var query2 = site2 + params;
 
        Model = new omarDataHandler(query);
        Model.getData();
-//       ObservableList<omarDataHandler.responseDataType> dataToShow = FXCollections.observableArrayList();
-//        DataList.setItems(dataToShow);
+
+
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
@@ -73,29 +73,30 @@ public class omarController implements Initializable {
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
         DataList.setItems(countryName);
 
+
     }
 
 
 
-//    private String getQueryParameters() {
-//        var isoCodes = getISOCode();
-//        return "/country/"+isoCodes;
-//    }
-//
-//
-//    private String getISOCode(){
-//
-//        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
-//        answer.setHeaderText("Choose country ISO code.");
-//        answer.setContentText("Choose country.");
-//        answer.setWidth(400);
-//        answer.setResizable(true);
-//        Optional<String> result = answer.showAndWait();
-//        if (result.isPresent())
-//            return result.get();
-//        else
-//            return "";
-//    }
+    private String getQueryParameters() {
+        var isoCodes = getISOCode();
+        return "/country/"+isoCodes;
+    }
+
+
+    private String getISOCode(){
+
+        TextInputDialog answer = new TextInputDialog("International Phone Numbers");
+        answer.setHeaderText("Choose country ISO code.");
+        answer.setContentText("Choose country.");
+        answer.setWidth(400);
+        answer.setResizable(true);
+        Optional<String> result = answer.showAndWait();
+        if (result.isPresent())
+            return result.get();
+        else
+            return "";
+    }
 
 
     @Override
@@ -117,8 +118,6 @@ public class omarController implements Initializable {
         );
 
     }
-
-
 
 
 

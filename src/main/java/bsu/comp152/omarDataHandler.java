@@ -61,10 +61,11 @@ public class omarDataHandler {
 
     }
 
+
     class responseDataType { //response data type for json information from International Phone Numbers API.
 
         ListView<responseDataType> responseDataTypes;
-//        String icon_url;
+        String icon_url;
         String title;
         String id;
         String url;
