@@ -1,7 +1,6 @@
 package bsu.comp152;
 
 import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +28,7 @@ public class omarDataHandler {
         this.webLocation = webLocation;
     }
 
-    public void getData() { //This method creates a data request from the API
+    public ListView<responseDataType> getData() { //This method creates a data request from the API
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataRequest = requestBuilder.uri(URI.create(webLocation)).build();
@@ -55,18 +54,19 @@ public class omarDataHandler {
         ObservableList<String> countryName = FXCollections.observableArrayList(dataList);
         DataList.setItems(countryName);
 
-//        var usefulData = response.body(); //assigns data to a Gson interpreter to convert the data from json into parsed readable info.
-//        var jsonInterpreter = new Gson(); //Gson will be created
-//        var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
-//        System.out.println(intPhoneNum.ISOCodes);
-//        return intPhoneNum.ISOCodes;
+        var jsonInterpreter = new Gson(); //Gson will be created
+        var intPhoneNum = jsonInterpreter.fromJson(usefulData, omarDataHandler.responseDataType.class); //creates data from a class responseDataType so the info can be parsed into an object.
+        System.out.println(intPhoneNum.responseDataTypes);
+        return intPhoneNum.responseDataTypes;
 
     }
 
+
     class responseDataType { //response data type for json information from International Phone Numbers API.
 
-        ArrayList<omarDataHandler.ISOCode> ISOCodes;
+        ListView<responseDataType> responseDataTypes;
         String icon_url;
+        String title;
         String id;
         String url;
         String value;
