@@ -76,7 +76,7 @@ public class omarController implements Initializable {
         return "/country/"+isoCodes;
     }
 
-    
+
     private String getISOCode(){ // gets the country name for the getQueryParameters
 
         TextInputDialog answer = new TextInputDialog("International Phone Numbers");
@@ -104,7 +104,7 @@ public class omarController implements Initializable {
                         var phoneCode = responseDataTypeListView.getSelectionModel().getSelectedItem(); //creates a new alert dialog
                         Alert phoneCodeInfo = new Alert(Alert.AlertType.INFORMATION);        //sets dialog to info type
                         phoneCodeInfo.setTitle("Info for"+phoneCode.title);                         //sets title for window
-                        phoneCodeInfo.setContentText("Phone code:"+phoneCode.value);           // shows the iso-code of country
+                        phoneCodeInfo.setContentText("Phone code:"+phoneCode.code);           // shows the iso-code of country
                         phoneCodeInfo.showAndWait();                                         //lets the user exit when they choose.
 
                     }
