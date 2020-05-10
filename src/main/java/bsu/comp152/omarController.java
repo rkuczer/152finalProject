@@ -35,7 +35,7 @@ public class omarController implements Initializable {
     private String params;
 
     public void loadData() { // method that gathers the data to display
-        var site1 = "http://country.io/phone.json ";
+        var site1 = "http://country.io/phone.json";
         var site2 = "http://country.io/names.json";
         var params = getQueryParameters();
         var query = site1 + params;
