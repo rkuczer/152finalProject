@@ -76,6 +76,7 @@ public class omarController implements Initializable {
         return "/country/"+isoCodes;
     }
 
+    
     private String getISOCode(){ // gets the country name for the getQueryParameters
 
         TextInputDialog answer = new TextInputDialog("International Phone Numbers");
@@ -88,6 +89,7 @@ public class omarController implements Initializable {
             return result.get();
         else
             return "";
+
     }
 
 
