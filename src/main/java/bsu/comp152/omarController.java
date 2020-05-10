@@ -41,7 +41,7 @@ public class omarController implements Initializable {
         var query = site1 + params;
         var query2 = site2 + params;
        Model = new omarDataHandler(query);
-       Model.getData();
+       Model. getData();
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
@@ -90,6 +90,10 @@ public class omarController implements Initializable {
         else
             return "";
 
+    }
+
+    private String getISOCode2(){
+        return ISOCode;
     }
 
 
