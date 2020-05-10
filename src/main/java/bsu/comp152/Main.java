@@ -1,5 +1,5 @@
 package bsu.comp152;
-
+// loads a start page that includes the main menu with a title pane and 4 buttons, one for the chuck norris api, another with the song finder, one with international phone numbers, as well as an exit button.
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
