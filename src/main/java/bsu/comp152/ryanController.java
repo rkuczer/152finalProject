@@ -52,7 +52,6 @@ public class ryanController implements Initializable {
     //initialize method runs when fxml loads
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadData();
         jokeInput = "";
         ListControl.getSelectionModel().selectedItemProperty().addListener( //gets selected item from the list
                 new ChangeListener<ryanDataHandler.category>() {

@@ -40,8 +40,8 @@ public class omarController implements Initializable {
         var params = getQueryParameters();
         var query = site1 + params;
         var query2 = site2 + params;
-       Model = new omarDataHandler(query);
-       Model.getData();
+        Model = new omarDataHandler(query);
+        Model.getData();
 
         var requestBuilder = HttpRequest.newBuilder();
         var dataGrabber = HttpClient.newHttpClient();
