@@ -1,3 +1,4 @@
+//could not get listener dialog to show on fxml, dialog that asks for category was shown but listener in initialzie method created a conflict.
 package bsu.comp152;
 
 import javafx.beans.value.ChangeListener;
