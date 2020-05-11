@@ -69,14 +69,14 @@ public class omarDataHandler {
         String title;
         String id;
         String url;
-        String value;
+       String code;
     }
 
     class ISOCode{ //stores data for the country name as value in json
-        String value;
+        String code;
         @Override
         public String toString() {
-            return "Country: " + value;
+            return "Country: " + code;
         }
     }
 }
